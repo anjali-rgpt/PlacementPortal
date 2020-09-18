@@ -26,41 +26,43 @@
     </script>
 </head>
 <body>
-<div id="navigationbar" class="sticky-top">
-    <header class="row ">
-        <div class="col-md-4 col-sm-12 my-auto">
-            <img src="..\..\Images\amritalogo.png" />
-        </div>
-        <div class="col-md-4 col-sm-12 my-auto">
-            <h1>Student Portal</h1>
-        </div>
-        <div class="col-md-4 col-sm-12 my-auto">
-            <button type="button" class="btn" id="signinout" value="logout" name="signinout">Logout</button>
-        </div>
-    </header>
-    <nav class="nav nav-pills nav-justified">
-        <a href="mainpage.html" class="nav-item nav-link" target="mainframe" id="home" name="home">Home</a>
-        <a href="companies_list.html" class="nav-item nav-link disabled" id="companies" name="companies">Companies</a>
-        <a href="companyregistration.html" class="nav-item nav-link " id="register" name="register">Registration</a>
-        <a href="calendar.html" class="nav-item nav-link" id="calendar" name="calendar">Calendar</a>
-    </nav>
-</div>
+    <div id="navigationbar" class="sticky-top">
+        <header class="row ">
+            <div class="col-md-4 col-sm-12 my-auto">
+                <img src="..\..\Images\amritalogo.png" />
+            </div>
+            <div class="col-md-4 col-sm-12 my-auto">
+                <h1>Student Portal</h1>
+            </div>
+            <div class="col-md-4 col-sm-12 my-auto">
+                <button type="button" class="btn" id="signinout" value="logout" name="signinout">Logout</button>
+            </div>
+        </header>
+        
+        <nav class="nav nav-pills nav-justified">
+            <a href="#" class="nav-item nav-link" target="mainframe" id="home" name="home">Home</a>
+            <a href="companies_list.html" class="nav-item nav-link disabled" id="companies" name="companies">Companies</a>
+            <a href="companyregistration.html" class="nav-item nav-link " id="register" name="register">Registration</a>
+            <a href="calendar.html" class="nav-item nav-link" id="calendar" name="calendar">Calendar</a>
+        </nav>
+    </div>
 
-<section class="companylist_body">
-    <h1> List of Companies</h1>
-<section class="embed-responsive embed-responsive-21by9">
-<iframe src="companies_list_1.html" id="body_frame" class="body embed-responsive-item"></iframe>
-</section>
+    <section class="companylist_body">
+        <h1> List of Companies</h1>
+
+        <section class="embed-responsive embed-responsive-21by9">
+            <iframe src="companies_list_1.html" id="body_frame" class="body embed-responsive-item"></iframe>
+        </section>
 
 
-<footer class="row justify-content-center">
-    <div class="col-md-3">
-    <button class="btn btn-outline-dark btn-block"" id="foot_but_1" disabled onclick="PageHandler(foot_but_1)">1</button>
-</div>
-<div class="col-md-3">
-    <button class="btn btn-outline-dark btn-block"" id="foot_but_2" onclick="PageHandler(foot_but_2)">2</button>
-</div>
-</footer>
-</section>
+        <footer class="row justify-content-center">
+            <div class="col-md-3">
+                <button class="btn btn-outline-dark btn-block" id="foot_but_1" disabled onclick="PageHandler(foot_but_1)">1</button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-outline-dark btn-block" id="foot_but_2" onclick="PageHandler(foot_but_2)">2</button>
+            </div>
+        </footer>
+    </section>
 </body>
 </html>
