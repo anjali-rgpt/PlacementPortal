@@ -9,12 +9,6 @@ html,body{
     font-family:'Philosopher';
     margin:1em;
 }
-section.heading{
-    font-family: 'Philosopher';
-    text-align: center;
-    padding: 8px;
-    background-color: rgb(75, 75, 75);
-}
 
 iframe.body{
     border: 2px;
