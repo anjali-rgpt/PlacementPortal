@@ -75,7 +75,7 @@ body {
   font-family: 'Exo 2', sans-serif;
   font-weight: bold;
   background-color: #54defd;
-  color: blue;
+  color: #0c0c0c;
 }
 
 #navigationbar .btn#signinout:hover {
