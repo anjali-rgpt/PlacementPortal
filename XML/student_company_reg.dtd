@@ -1,0 +1,21 @@
+<!ELEMENT Registrations(Student+)>
+<!ELEMENT Student(FirstName,MiddleName,LastName,RollNumber,EmailID,PhoneNumber,Address,Degree,Department,GradYear,CGPA,Companies)>
+<!ELEMENT FirstName(#PCDATA)>
+<!ELEMENT MiddleName(#PCDATA)>
+<!ELEMENT LastName(#PCDATA)>
+<!ELEMENT RollNumber(#PCDATA)>
+<!ELEMENT EmailID(#PCDATA)>
+<!ELEMENT PhoneNumber(#PCDATA)>
+<!ELEMENT Address(#CDATA)>
+<!ELEMENT Degree(#PCDATA)>
+<!ELEMENT Department(#PCDATA)>
+<!ELEMENT GradYear(#PCDATA)>
+<!ELEMENT CGPA(#PCDATA)>
+<!ELEMENT Companies (Company*)>
+<!ELEMENT Company(CompanyName,RoleName,Type,Question,ResumeLink,Status)>
+<!ELEMENT CompanyName(#CDATA)>
+<!ELEMENT RoleName(#CDATA)>
+<!ELEMENT Type(#PCDATA)>
+<!ELEMENT Question(#CDATA)>
+<!ELEMENT ResumeLink(#CDATA)>
+<!ELEMENT Status(#PCDATA)>

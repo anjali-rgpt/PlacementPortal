@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Registrations SYSTEM "student_company_reg.dtd">
+
+<Registrations>
+    
+    <Student>
+        <FirstName>Anjali</FirstName>
+        <MiddleName></MiddleName>
+        <LastName>Ragupathi</LastName>
+        <RollNumber>CB.EN.U4CSE17307</RollNumber>
+        <EmailID>anjaliragupathi99@gmail.com</EmailID>
+        <PhoneNumber>7502712000</PhoneNumber>
+        <Address>9, ABC Street, KLM Nagar, Coimbatore </Address>
+        <Degree>B.Tech</Degree>
+        <Department>Computer Science and Engineering</Department>
+        <GradYear>2021</GradYear>
+        <CGPA>9.64</CGPA>
+        
+        <Companies>
+            
+            <Company>
+                <CompanyName>Amazon</CompanyName>
+                <RoleName>R&amp;D</RoleName>
+                <Type>Internship</Type>
+                <Question>I want to join this company because it is fun</Question>
+                <ResumeLink></ResumeLink>
+                <Status>Registered</Status>
+                
+            </Company>
+            
+            <Company>
+                <CompanyName>Microsoft</CompanyName>
+                <RoleName>R&amp;D</RoleName>
+                <Type>Internship</Type>
+                <Question>I want to join this company because it does quality research</Question>
+                <ResumeLink></ResumeLink>
+                <Status>Registered</Status>
+                
+            </Company>
+            
+        </Companies>
+        
+    </Student>
+    
+    <Student>
+        <FirstName>Sheela</FirstName>
+        <MiddleName>J</MiddleName>
+        <LastName>Gupta</LastName>
+        <RollNumber>CB.EN.U4CSE17545</RollNumber>
+        <EmailID>sheelagupta@gmail.com</EmailID>
+        <PhoneNumber>8502712090</PhoneNumber>
+        <Address>8, Canterbury Villas, Mumbai </Address>
+        <Degree>B.Tech</Degree>
+        <Department>Computer Science and Engineering</Department>
+        <GradYear>2021</GradYear>
+        <CGPA>8.5</CGPA>
+        
+        <Companies>
+            
+            <Company>
+                <CompanyName>Mr.Cooper</CompanyName>
+                <RoleName>Software Engineer</RoleName>
+                <Type>FTE</Type>
+                <Question>Mr.Cooper has been my passion for a long time. I like the work they do in financial consulting and want to make a difference.</Question>
+                <ResumeLink></ResumeLink>
+                <Status>Registered</Status>
+                
+            </Company>
+            
+            <Company>
+                <CompanyName>SAP Labs</CompanyName>
+                <RoleName>Software Engineer</RoleName>
+                <Type>Internship</Type>
+                <Question>The Lab attracts me because it is a place for opportunity.</Question>
+                <ResumeLink>http://www.drive.google.com/resume.pdf</ResumeLink>
+                <Status>Registered</Status>
+                
+            </Company>
+            
+        </Companies>
+        
+    </Student>
+    
+    
+</Registrations>
