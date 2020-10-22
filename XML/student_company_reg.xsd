@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="FirstName">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z][a-z]+"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="MiddleName">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z][a-z]*|\s{0}"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="LastName">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z][a-z]+"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="RollNumber">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="CB\.EN\.(U4|P2)(CSE|ECE|MEE|EEE|CIV|CHE)[1][78][0123456][0123456][\d{1}]"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="EmailID">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[a-z][a-z\d]+@(gmail|hotmail|yahoo)\.com"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="PhoneNumber">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[789](\d{9})"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="Address">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z0-9][A-Za-z0-9&amp;,\.\n\t\s]+"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="Degree">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="(B\.Tech\.)|(M\.Tech\.)"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="Department">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="(Computer Science and Engineering)|(Electrical and Electronics Engineering)|(Mechanical Engineering)|(Electronics and Communication Engineering)|(Chemical Engineering)|(Civil Engineering)"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="GradYear">
+<xs:simpleType>
+<xs:restriction base="xs:integer">
+<xs:minInclusive value="2021"/>
+<xs:maxInclusive value="2023"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="CGPA">
+<xs:simpleType>
+<xs:restriction base="xs:decimal">
+<xs:minInclusive value="0"/>
+<xs:maxInclusive value="10"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="CompanyName">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z0-9][\sA-Za-z0-9\[\]\./]+"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+
+<xs:element name="RoleName">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z][A-Za-z\s&amp;]+"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="Type">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="(Internship)|(FTE)|(Internship\+FTE)"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="Question">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z]([\sA-Za-z0-9&amp;\(\)\-\.,])*"/>
+<xs:minLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="ResumeLink">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Za-z][A-Za-z0-9&amp;\s\(\)\-/:\.]+(\.pdf)"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="Status">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="(Registered)|(Selected)|(Rejected)|(Progress)"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:element name="Company">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="CompanyName"/>
+<xs:element ref="RoleName"/>
+<xs:element ref="Type"/>
+<xs:element ref="Question"/>
+<xs:element ref="ResumeLink"/>
+<xs:element ref="Status"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Companies">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="Company" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Student">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="FirstName"/>
+<xs:element ref="MiddleName" minOccurs="0" maxOccurs="1"/>
+<xs:element ref="LastName"/>
+<xs:element ref="RollNumber"/>
+<xs:element ref="EmailID"/>
+<xs:element ref="PhoneNumber"/>
+<xs:element ref="Address"/>
+<xs:element ref="Degree"/>
+<xs:element ref="Department"/>
+<xs:element ref="GradYear"/>
+<xs:element ref="CGPA"/>
+<xs:element ref="Companies"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Registrations">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="Student" minOccurs="1" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+
+</xs:schema>

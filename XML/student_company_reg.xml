@@ -2,7 +2,7 @@
 
 <!DOCTYPE Registrations SYSTEM "student_company_reg.dtd">
 
-<Registrations>
+<Registrations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="student_company_reg.xsd">
     
     <Student>
         <FirstName>Anjali</FirstName>
@@ -12,7 +12,7 @@
         <EmailID>anjaliragupathi99@gmail.com</EmailID>
         <PhoneNumber>7502712000</PhoneNumber>
         <Address>9, ABC Street, KLM Nagar, Coimbatore </Address>
-        <Degree>B.Tech</Degree>
+        <Degree>B.Tech.</Degree>
         <Department>Computer Science and Engineering</Department>
         <GradYear>2021</GradYear>
         <CGPA>9.64</CGPA>
@@ -24,7 +24,7 @@
                 <RoleName>R&amp;D</RoleName>
                 <Type>Internship</Type>
                 <Question>I want to join this company because it is fun</Question>
-                <ResumeLink></ResumeLink>
+                <ResumeLink>http://www.drive.google.com/resume.pdf</ResumeLink>
                 <Status>Registered</Status>
                 
             </Company>
@@ -34,7 +34,7 @@
                 <RoleName>R&amp;D</RoleName>
                 <Type>Internship</Type>
                 <Question>I want to join this company because it does quality research</Question>
-                <ResumeLink></ResumeLink>
+                <ResumeLink>http://www.drive.google.com/resume.pdf</ResumeLink>
                 <Status>Registered</Status>
                 
             </Company>
@@ -51,7 +51,7 @@
         <EmailID>sheelagupta@gmail.com</EmailID>
         <PhoneNumber>8502712090</PhoneNumber>
         <Address>8, Canterbury Villas, Mumbai </Address>
-        <Degree>B.Tech</Degree>
+        <Degree>B.Tech.</Degree>
         <Department>Computer Science and Engineering</Department>
         <GradYear>2021</GradYear>
         <CGPA>8.5</CGPA>
@@ -63,7 +63,7 @@
                 <RoleName>Software Engineer</RoleName>
                 <Type>FTE</Type>
                 <Question>Mr.Cooper has been my passion for a long time. I like the work they do in financial consulting and want to make a difference.</Question>
-                <ResumeLink></ResumeLink>
+                <ResumeLink>http://www.drive.google.com/resume.pdf</ResumeLink>
                 <Status>Registered</Status>
                 
             </Company>
