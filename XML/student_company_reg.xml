@@ -83,6 +83,21 @@
         </Companies>
         
     </Student>
+
+    <Student>
+        <FirstName>Harshavardhini</FirstName>
+        <MiddleName></MiddleName>
+        <LastName>Saravanakumaran</LastName>
+        <RollNumber>CB.EN.U4ECE17334</RollNumber>
+        <EmailID>harshavardhini_s@gmail.com</EmailID>
+        <PhoneNumber>9502712890</PhoneNumber>
+        <Address>1, Svarga Hill Road, Vadavalli, Coimbatore, Tamil Nadu </Address>
+        <Degree>B.Tech.</Degree>
+        <Department>Electronics and Communication Engineering</Department>
+        <GradYear>2021</GradYear>
+        <CGPA>8.9</CGPA>
+        <Companies></Companies>
+    </Student>
     
     
 </Registrations>

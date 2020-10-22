@@ -36,7 +36,7 @@
 <xs:element name="EmailID">
 <xs:simpleType>
 <xs:restriction base="xs:string">
-<xs:pattern value="[a-z][a-z\d]+@(gmail|hotmail|yahoo)\.com"/>
+<xs:pattern value="[a-z][a-z_\d]+@(gmail|hotmail|yahoo)\.com"/>
 </xs:restriction>
 </xs:simpleType>
 </xs:element>
