@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?xml-stylesheet type="text/xsl" href="student_company_reg.xsl"?>
+
 <!DOCTYPE Registrations SYSTEM "student_company_reg.dtd">
 
 <Registrations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="student_company_reg.xsd">
@@ -74,7 +76,7 @@
                 <Type>Internship</Type>
                 <Question>The Lab attracts me because it is a place for opportunity.</Question>
                 <ResumeLink>http://www.drive.google.com/resume.pdf</ResumeLink>
-                <Status>Registered</Status>
+                <Status>Selected</Status>
                 
             </Company>
             
