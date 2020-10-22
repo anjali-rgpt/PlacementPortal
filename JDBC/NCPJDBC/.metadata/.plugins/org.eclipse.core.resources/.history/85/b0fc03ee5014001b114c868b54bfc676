@@ -1,0 +1,124 @@
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.io.File;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+public class JDBC_Connection {
+    public static void main(String[] args){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+        }
+        catch(ClassNotFoundException e){
+            System.out.println("Class not found. "+e);
+        }
+        System.out.println("JDBC Class Found");
+
+        try{
+        DocumentBuilderFactory docBuilderFactory=DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder=docBuilderFactory.newDocumentBuilder();
+		Document doc = docBuilder.parse(new File("D:\\4th Year\\NCP\\NCPProject\\XML\\student_company_reg.xml"));
+		doc.getDocumentElement().normalize();
+		System.out.println("Root element of doc is:"+doc.getDocumentElement().getNodeName());
+
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ncp","root","RC7pA9vB");
+        
+        PreparedStatement prepInsert1=con.prepareStatement("insert into Student values(?,?,?,?,?,?,?,?,?,?,?)");
+        
+        PreparedStatement prepInsert2=con.prepareStatement("insert into Registrations values(?,?,?,?,?,?,?)");
+        
+        PreparedStatement prepSelect1=con.prepareStatement("select RollNumber from Students where RollNumber=?");
+        
+        NodeList listOfPersons=doc.getElementsByTagName("Student");
+		for ( int i=0; i<listOfPersons.getLength();i++){
+			System.out.println("Here");
+			Node firstPerson=listOfPersons.item(i);
+			if(firstPerson.getNodeType()==Node.ELEMENT_NODE){
+				Element firstPersonElement = (Element)firstPerson;
+				
+				NodeList firstNames=firstPersonElement.getElementsByTagName("FirstName");
+				Element fnameElement=(Element)firstNames.item(0);
+				NodeList textFNList=fnameElement.getChildNodes();
+				String fname=((Node)textFNList.item(0)).getNodeValue().trim();
+				System.out.println(fname);
+				
+				NodeList middleNames=firstPersonElement.getElementsByTagName("MiddleName");
+				Element mnameElement=(Element)firstNames.item(0);
+				NodeList textMNList=mnameElement.getChildNodes();
+				String mname=((Node)textMNList.item(0)).getNodeValue().trim();
+				System.out.println(mname);
+				
+				NodeList lastNames=firstPersonElement.getElementsByTagName("LastName");
+				Element lnameElement=(Element)lastNames.item(0);
+				NodeList textLNList=lnameElement.getChildNodes();
+				String lname=((Node)textLNList.item(0)).getNodeValue().trim();
+				System.out.println(lname);
+				
+				NodeList rollnums=firstPersonElement.getElementsByTagName("RollNumber");
+				Element rollElement=(Element)rollnums.item(0);
+				NodeList textRollList=rollElement.getChildNodes();
+				String rollnum=((Node)textRollList.item(0)).getNodeValue().trim();
+				
+				NodeList emails=firstPersonElement.getElementsByTagName("EmailID");
+				Element emailElement=(Element)emails.item(0);
+				NodeList textEmailList=emailElement.getChildNodes();
+				String email=((Node)textEmailList.item(0)).getNodeValue().trim();
+				
+				NodeList phones=firstPersonElement.getElementsByTagName("Phone");
+				Element phoneElement=(Element)phones.item(0);
+				NodeList textPhoneList=phoneElement.getChildNodes();
+				String phone=((Node)textPhoneList.item(0)).getNodeValue().trim();
+				
+				NodeList addresses=firstPersonElement.getElementsByTagName("Address");
+				Element addElement=(Element)addresses.item(0);
+				NodeList textAddList=addElement.getChildNodes();
+				String address=((Node)textAddList.item(0)).getNodeValue().trim();
+				
+				NodeList degrees=firstPersonElement.getElementsByTagName("Degree");
+				Element degreeElement=(Element)degrees.item(0);
+				NodeList textDList=degreeElement.getChildNodes();
+				String degree=((Node)textDList.item(0)).getNodeValue().trim();
+				
+				NodeList depts=firstPersonElement.getElementsByTagName("Department");
+				Element deptElement=(Element)depts.item(0);
+				NodeList textDeptList=deptElement.getChildNodes();
+				String department=((Node)textDeptList.item(0)).getNodeValue().trim();
+				
+				NodeList gradyears=firstPersonElement.getElementsByTagName("GradYear");
+				Element gradyearElement=(Element)gradyears.item(0);
+				NodeList textGYList=gradyearElement.getChildNodes();
+				String gradyear=((Node)textGYList.item(0)).getNodeValue().trim();
+				
+				NodeList cgpas=firstPersonElement.getElementsByTagName("CGPA");
+				Element cgpaElement=(Element)cgpas.item(0);
+				NodeList textCList=cgpaElement.getChildNodes();
+				String cgpa=((Node)textCList.item(0)).getNodeValue().trim();
+				float cg=Float.parseFloat(cgpa);
+				
+				prepSelect1.setString(1,rollnum);
+				int c = prepSelect1.executeUpdate();
+				System.out.println("Returned:"+c);
+			}
+			
+
+			
+		}
+        
+        }
+        catch(Exception e){
+        	System.out.println("Could not find DB");
+        	System.out.println(e);
+        	
+        }
+        
+        
+    }
+}
