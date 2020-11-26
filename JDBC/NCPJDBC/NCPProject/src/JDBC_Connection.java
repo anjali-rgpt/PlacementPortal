@@ -41,10 +41,15 @@ public class JDBC_Connection {
         PreparedStatement prepInsert2=con.prepareStatement("insert into Registrations values(?,?,?,?,?,?,?)",ResultSet.TYPE_SCROLL_SENSITIVE, 
                 ResultSet.CONCUR_UPDATABLE);
         
+        PreparedStatement prepInsert3=con.prepareStatement("insert into Users values(?,?)", ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        
         PreparedStatement prepSelect1=con.prepareStatement("select RollNumber from Student where RollNumber=?",ResultSet.TYPE_SCROLL_SENSITIVE, 
                 ResultSet.CONCUR_UPDATABLE);
         
         PreparedStatement prepSelect2=con.prepareStatement("select RollNumber from Registrations where (RollNumber=?) AND (CompanyName=?)",ResultSet.TYPE_SCROLL_SENSITIVE, 
+                ResultSet.CONCUR_UPDATABLE);
+        
+        PreparedStatement prepSelect3=con.prepareStatement("select EmailID from Users where (EmailID=?)",ResultSet.TYPE_SCROLL_SENSITIVE, 
                 ResultSet.CONCUR_UPDATABLE);
         
         NodeList listOfPersons=doc.getElementsByTagName("Student");
@@ -119,8 +124,15 @@ public class JDBC_Connection {
 				String cgpa=((Node)textCList.item(0)).getNodeValue().trim();
 				float cg=Float.parseFloat(cgpa);
 				
+				NodeList passVals=firstPersonElement.getElementsByTagName("Password");
+				Element passElement=(Element)passVals.item(0);
+				NodeList textPassList=passElement.getChildNodes();
+				String pass=((Node)textPassList.item(0)).getNodeValue().trim();
+				System.out.println(pass);
+				
 				prepSelect1.setString(1,rollnum);
 				prepSelect2.setString(1,rollnum);
+				prepSelect3.setString(1,email);
 				ResultSet rs = prepSelect1.executeQuery();
 				//System.out.println("Hi");
 				if(!rs.last()){
@@ -141,6 +153,16 @@ public class JDBC_Connection {
 						int c = prepInsert1.executeUpdate();
 						System.out.println("Number of rows updated:"+c);
 
+				}
+				
+				ResultSet newrs = prepSelect3.executeQuery();
+				if(!newrs.last()){
+					
+					System.out.println("New user added");
+					prepInsert3.setString(1,email);
+					prepInsert3.setString(2,pass);
+					int c=prepInsert3.executeUpdate();
+					System.out.println("Number of rows updated for Users:"+c);
 				}
 				
 				

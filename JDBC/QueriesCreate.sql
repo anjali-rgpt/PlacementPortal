@@ -5,8 +5,11 @@ create table Registrations(RollNumber varchar(16), CompanyName varchar(25), Role
 
 select * from student;
 select * from registrations;
+select * from Users;
 delete from Registrations;
 delete from Student;
 
 drop table Registrations;
 drop table Student;
+
+create table Users(EmailID varchar(50) primary key, PasswordVal varchar(20),foreign key (EmailID) references Student(EmailID),check (length(PasswordVal)>=8));

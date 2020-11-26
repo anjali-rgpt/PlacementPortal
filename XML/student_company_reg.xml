@@ -18,6 +18,7 @@
         <Department>Computer Science and Engineering</Department>
         <GradYear>2021</GradYear>
         <CGPA>9.64</CGPA>
+        <Password>abcxyz123</Password>
         
         <Companies>
             
@@ -57,6 +58,7 @@
         <Department>Computer Science and Engineering</Department>
         <GradYear>2021</GradYear>
         <CGPA>8.5</CGPA>
+        <Password>pqr234123</Password>
         
         <Companies>
             
@@ -96,6 +98,7 @@
         <Department>Electronics and Communication Engineering</Department>
         <GradYear>2021</GradYear>
         <CGPA>8.9</CGPA>
+        <Password>harshaece1</Password>
         <Companies></Companies>
     </Student>
     
