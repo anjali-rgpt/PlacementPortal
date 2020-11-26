@@ -1,9 +1,8 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.*"%>
-<%!
+<%
 Connection con;
 PreparedStatement ps1;
-PrintWriter out;
 public void jspInit(){
 try{
     Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,7 +29,8 @@ c = rs.getInt(1);
 if(c==0)
 out.println("<b>Invalid</b>");
 else{
-   response.sendRedirect("..\..\HTML\Student\mainpage.html"); 
+   session.putValue("email",emailUser);
+   response.sendRedirect("..\\..\\HTML\\Student\\mainpage.html"); 
 }
 
 }
@@ -42,7 +42,7 @@ else{
     {
         try
         {
-            //colse
+            //close
             ps1.close();
             con.close();
         }

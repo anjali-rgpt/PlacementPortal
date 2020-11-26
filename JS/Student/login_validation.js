@@ -25,15 +25,18 @@ function LoginValidation(){
     if(Symbolcheck(em) && Splitcheck(em) && Endcheck(em)){
 
         if((String(pas)).length >= 8){
-            window.location.href = "https://anjali-rgpt.github.io/PlacementPortal/HTML/Student/mainpage.html#";
+           /* window.location.href = "https://anjali-rgpt.github.io/PlacementPortal/HTML/Student/mainpage.html#";*/
+           return true;
         }
 
         else{
             alert("You have entered an invalid password!");
+            return false;
         }
     }
 
     else{
         alert("You have entered an invalid email address!");
+        return false;
     }
 };
