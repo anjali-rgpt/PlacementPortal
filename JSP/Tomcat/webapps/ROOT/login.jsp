@@ -3,7 +3,7 @@
 <%
 Connection con;
 PreparedStatement ps1;
-
+System.out.println("Entered Login JSP");
 try{
     Class.forName("com.mysql.cj.jdbc.Driver");
 }
@@ -33,7 +33,7 @@ out.println("<b>Invalid</b>");
 else{
    session.putValue("email",emailUser);
    System.out.println("Session stored");
-   response.setHeader("Location", "http://www.anjali-rgpt.github.io/PlacementPortal/Student/HTML/mainpage.html");
+   response.sendRedirect("/static/HTML/Student/mainpage.html");
 }
 
 
