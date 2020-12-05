@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [27/Nov/2020:00:23:22 +0530] "GET /static/JS/Student/registrationvalidation.js HTTP/1.1" 404 806
+0:0:0:0:0:0:0:1 - - [27/Nov/2020:00:40:33 +0530] "GET /static/HTML/Student/companydetails.html HTTP/1.1" 200 3770
+0:0:0:0:0:0:0:1 - - [27/Nov/2020:00:40:33 +0530] "GET /static/CSS/companydetails.css HTTP/1.1" 200 268
+0:0:0:0:0:0:0:1 - - [27/Nov/2020:00:40:33 +0530] "GET /static/Images/warrior.png HTTP/1.1" 200 34546
+0:0:0:0:0:0:0:1 - - [27/Nov/2020:00:44:46 +0530] "GET /static/JS/Student/registrationvalidation.js HTTP/1.1" 200 2315
