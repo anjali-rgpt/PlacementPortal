@@ -29,10 +29,10 @@
             </div>
         </header>
         <nav class="nav nav-pills nav-justified">
-            <a href="http://localhost:8080/mainpage.html" class="nav-item nav-link" target="mainframe" id="home" name="home">Home</a>
-            <a href="http://localhost:8080/companies_list.html" class="nav-item nav-link" id="companies" name="companies">Companies</a>
-            <a href="http://localhost:8080/companyregistration.html" class="nav-item nav-link disabled" id="register" name="register">Registration</a>
-            <a href="http://localhost:8080/calendar.html" class="nav-item nav-link" id="calendar" name="calendar">Calendar</a>
+            <a href="http://localhost:8080/mainpage.jsp" class="nav-item nav-link" target="mainframe" id="home" name="home">Home</a>
+            <a href="http://localhost:8080/companies_list.jsp" class="nav-item nav-link" id="companies" name="companies">Companies</a>
+            <a href="http://localhost:8080/companyregistration.jsp" class="nav-item nav-link disabled" id="register" name="register">Registration</a>
+            <a href="http://localhost:8080/calendar.jsp" class="nav-item nav-link" id="calendar" name="calendar">Calendar</a>
         </nav>
     </div>
     <div id="c_registration_pagebody">
@@ -45,7 +45,7 @@
             </select>
         </div>
         <div class="row align-items-center justify-content-center">
-            <form id="register_form" method="POST" action="http://localhost:8080/mainpage.html" onsubmit="return validate()">
+            <form id="register_form" method="POST" action="http://localhost:8080/mainpage.jsp" onsubmit="return validate()">
                 <h1>Registration Form</h1>
 
                 <fieldset name="Personal" class="border-light pl-2 m-3">

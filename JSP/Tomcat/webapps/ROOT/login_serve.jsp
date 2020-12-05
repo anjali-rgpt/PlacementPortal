@@ -33,7 +33,7 @@ out.println("<b>Invalid</b>");
 else{
    session.putValue("email",emailUser);
    System.out.println("Session stored");
-   response.sendRedirect("/static/HTML/Student/mainpage.html");
+   response.sendRedirect("http://localhost:8080/mainpage.jsp");
 }
 
 
