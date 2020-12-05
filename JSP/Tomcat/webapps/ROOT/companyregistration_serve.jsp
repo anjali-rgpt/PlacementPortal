@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register for Company</title>
-    <link rel="stylesheet" type="text/css" href="CSS\regform.css" />
-    <link rel="stylesheet" type="text/css" href="CSS\navstyles.css" />
-    <link rel="stylesheet" type="text/css" href="CSS\companylink.css" />
+    <link rel="stylesheet" type="text/css" href="static\CSS\regform.css" />
+    <link rel="stylesheet" type="text/css" href="static\CSS\navstyles.css" />
+    <link rel="stylesheet" type="text/css" href="static\CSS\companylink.css" />
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Philosopher:wght@700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-    <script src="JS\Student\registrationvalidation.js" type="text/javascript"></script> 
+    <script src="static\JS\Student\registrationvalidation.js" type="text/javascript"></script> 
 </head>
 
 <body>
     <div id="navigationbar" class="sticky-top">
         <header class="row ">
             <div class="col-md-4 col-sm-12 my-auto">
-                <img src="Images\amritalogo.png" />
+                <img src="static\Images\amritalogo.png" />
             </div>
             <div class="col-md-4 col-sm-12 my-auto">
                 <h1>Student Portal</h1>
@@ -29,10 +29,10 @@
             </div>
         </header>
         <nav class="nav nav-pills nav-justified">
-            <a href="http://localhost:8080/mainpage.html" class="nav-item nav-link" target="mainframe" id="home" name="home">Home</a>
-            <a href="http://localhost:8080/companies_list.html" class="nav-item nav-link" id="companies" name="companies">Companies</a>
-            <a href="http://localhost:8080/companyregistration.html" class="nav-item nav-link disabled" id="register" name="register">Registration</a>
-            <a href="http://localhost:8080/calendar.html" class="nav-item nav-link" id="calendar" name="calendar">Calendar</a>
+            <a href="mainpage.html" class="nav-item nav-link" target="mainframe" id="home" name="home">Home</a>
+            <a href="companies_list.html" class="nav-item nav-link" id="companies" name="companies">Companies</a>
+            <a href="companyregistration.html" class="nav-item nav-link disabled" id="register" name="register">Registration</a>
+            <a href="calendar.html" class="nav-item nav-link" id="calendar" name="calendar">Calendar</a>
         </nav>
     </div>
     <div id="c_registration_pagebody">
@@ -45,7 +45,7 @@
             </select>
         </div>
         <div class="row align-items-center justify-content-center">
-            <form id="register_form" method="POST" action="http://localhost:8080/mainpage.html" onsubmit="return validate()">
+            <form id="register_form" method="POST" action="register.java" onsubmit="return validate()">
                 <h1>Registration Form</h1>
 
                 <fieldset name="Personal" class="border-light pl-2 m-3">

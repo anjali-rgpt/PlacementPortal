@@ -1,56 +1,48 @@
-<%@ page import="java.sql.*"%>
-<%@ page import="java.util.*"%>
-<%
-Connection con;
-PreparedStatement ps1;
-System.out.println("Entered Login JSP");
-try{
-    Class.forName("com.mysql.cj.jdbc.Driver");
-}
-catch(ClassNotFoundException e){
-    System.out.println("Class not found. "+e);
-}
-System.out.println("Class found");
+<html>
+    
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="CSS\login_stylesheet.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+	<script type="text/javascript" src="JS\Student\login_validation.js"></script>
+</head>
 
-con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ncp","root","RC7pA9vB");
-String query="USE NCP";
-Statement stmt=con.createStatement();
-stmt.executeQuery(query);
-
-String emailUser = request.getParameter("email");
-String pass = request.getParameter("pass");
-
-ps1 = con.prepareStatement("select count(*) from Users where EmailID = ? and PasswordVal = ?");
-ps1.setString(1,emailUser);
-ps1.setString(2,pass);
-ResultSet rs = ps1.executeQuery();
-int c = 0;
-if(rs.next())
-c = rs.getInt(1);
-
-if(c==0)
-out.println("<b>Invalid</b>");
-else{
-   session.putValue("email",emailUser);
-   System.out.println("Session stored");
-   response.sendRedirect("/static/HTML/Student/mainpage.html");
-}
-
-
-
-%>
-
-<%
-
-        try
-        {
-            //close
-            ps1.close();
-            con.close();
-        }
-        catch(Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
-%>
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="Images\amritalogo_login.png" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form action="http://localhost:8080/login_serve.jsp" method="POST" onsubmit="LoginValidation()">
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user" style="font-size:15px"></i></span>
+							</div>
+							<input type="text" id="email" name="email" class="form-control input_user" placeholder="E-mail">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" id="pass" name="pass" class="form-control input_pass" placeholder="Password">
+						</div>
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 	        <input type="submit" name="button" class="btn login_btn" value="Login"/>
+				        </div>
+					</form>
+				</div>
+		
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						<a href="#">Forgot your password?</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
