@@ -29,9 +29,9 @@ public class JDBC_Connection {
 		doc.getDocumentElement().normalize();
 		System.out.println("Root element of doc is:"+doc.getDocumentElement().getNodeName());
 
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ncp","root","RC7pA9vB");
+        Connection con=DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/6dO9xvYDBl","6dO9xvYDBl","uBQpS0PirH");
         
-        String query="USE NCP";
+        String query="USE 6dO9xvYDBl";
         Statement stmt=con.createStatement();
         stmt.executeQuery(query);
         
