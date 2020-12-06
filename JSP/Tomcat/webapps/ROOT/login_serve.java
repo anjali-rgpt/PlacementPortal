@@ -28,7 +28,6 @@ public class login_serve extends HttpServlet {
         System.out.println("Class found");
         try{
         con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/6dO9xvYDBl", "6dO9xvYDBl", "uBQpS0PirH");
-
         String query = "USE 6dO9xvYDBl";
         Statement stmt = con.createStatement();
         stmt.executeQuery(query);

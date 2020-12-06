@@ -12,14 +12,14 @@ import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-public class ListCompany {
-
+ 
+import java.util.Date;
+ 
+public class CompanyBean {
+     
     public List<String> getItems() {
         Connection con;
         PreparedStatement ps1;
-        PrintWriter out;
         List<String> list = new ArrayList<String>();
 
         System.out.println("Entered Model View Company List");
@@ -55,4 +55,5 @@ public class ListCompany {
 
     }
 
+ 
 }
