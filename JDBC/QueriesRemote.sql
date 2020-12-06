@@ -16,6 +16,8 @@ drop table Student;
 drop table Roles;
 drop table Companies;
 
+select CompanyName from Registrations where NOT (RollNumber = "CB.EN.U4CSE17307");
+select distinct Companies.CompanyName from Companies where CompanyName not in (select CompanyName from Registrations where RollNumber = "CB.EN.U4CSE17307");
 
 create table Users(EmailID varchar(50) primary key, PasswordVal varchar(20),foreign key (EmailID) references Student(EmailID),check (length(PasswordVal)>=8));
 create table Companies(CompanyName varchar(25) primary key, CGPA float(2) not null, CompanyLink varchar(120), Criteria varchar(300), Question varchar(100) not null,About varchar(600) not null,check (CGPA >=0 and CGPA <=10.0));

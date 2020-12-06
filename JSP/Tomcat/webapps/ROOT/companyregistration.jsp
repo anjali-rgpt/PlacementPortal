@@ -61,9 +61,7 @@ pageEncoding="ISO-8859-1"%>
     Statement stmt = con.createStatement();
     stmt.executeQuery(query);
     
-    ps1=con.prepareStatement("select CompanyName from Companies");
-    ResultSet rs = ps1.executeQuery();
-
+    
     String email = (String)session.getAttribute("email");
 
     ps2=con.prepareStatement("select * from Student where EmailID = ?");
@@ -95,14 +93,22 @@ pageEncoding="ISO-8859-1"%>
 
     session.putValue("rollnum",rollnumber);
 
+    ps1 = con.prepareStatement("select distinct Companies.CompanyName from Companies where CompanyName not in (select CompanyName from Registrations where RollNumber = ?)");
+    System.out.println("Statement");
+    ps1.setString(1,rollnumber);
+    ResultSet rs = ps1.executeQuery();
+    System.out.println("Got the companies");
+
+
         %>
 
 
     <div id="c_registration_pagebody">
         <div id="selection" class="row align-items-center justify-content-center">
             <select name="company_name" onchange="populate(this)">
+                <option selected>---</option>
                 <% while (rs.next()){%>
-                <option selected><%= rs.getString(1)%></option>
+                <option><%= rs.getString(1)%></option>
                 <%System.out.println("Company:"+rs.getString(1));%>
                 <% } %>
             </select>
@@ -118,7 +124,7 @@ pageEncoding="ISO-8859-1"%>
 
                     <section id="name" class="row">
                         <div class="col-md-4">
-                            <label for="fname">First Name</label><br />
+                            <label for="fname">First Name<span>*</span></label><br />
                             <input type="text" name="fname" id="fname" value="<%=firstname%>" required />
                         </div>
                         <div class="col-md-4">
@@ -126,14 +132,14 @@ pageEncoding="ISO-8859-1"%>
                             <input type="text" name="mname" id="mname" value="<%=mname%>" />
                         </div>
                         <div class="col-md-4 ">
-                            <label for="lname">Last Name</label><br />
+                            <label for="lname">Last Name<span>*</span></label><br />
                             <input type="text" name="lname" id="lname" value="<%=lname%>" required />
                         </div>
                     </section>
 
                     <div id="rollnum" class="row">
                         <div class="col-md-4">
-                            <label for="rollnum">Roll Number</label><br />
+                            <label for="rollnum">Roll Number<span>*</span></label><br />
                             <input type="text" name="rollnum" id="rollnumber" value="<%=rollnumber%>" required>
                         </div>
                     </div>
@@ -141,19 +147,19 @@ pageEncoding="ISO-8859-1"%>
                     <section id="contact" class="row justify-content-between">
 
                         <div class="col-md-4 col-sm-12">
-                            <label for="email">EMail ID</label><br />
+                            <label for="email">EMail ID<span>*</span></label><br />
                             <input type="email" name="email" id="email" value="<%=email%>" required>
                         </div>
                         <div class="col-md-4">
-                            <label for="phonenum">Phone Number</label><br />
+                            <label for="phonenum">Phone Number<span>*</span></label><br />
                             <input type="number" name="phonenum" id="phonenum" value="<%=phonenumber%>" required>
                         </div>
                     </section>
 
                     <section id="location" class="row">
                         <div class="col-md-4">
-                            <label for="address">Address</label><br />
-                            <textarea name="address" id="address" value="<%=address%>" required></textarea>
+                            <label for="address">Address<span>*</span></label><br />
+                            <textarea name="address" id="address" placeholder="<%=address%>" required></textarea>
                         </div>
                     </section>
 
@@ -163,7 +169,7 @@ pageEncoding="ISO-8859-1"%>
                     <legend>Academic Details</legend>
                     <section id="degree-details" class="row">
                         <div class="col-md-4">
-                            <label>Degree</label><br />
+                            <label>Degree<span>*</span></label><br />
 
                             <label for="btech">B.Tech.</label>
                             <input type="radio" id="btech" name="degree" value="btech" required>
@@ -172,7 +178,7 @@ pageEncoding="ISO-8859-1"%>
                             <input type="radio" id="mtech" name="degree" value="mtech">
                         </div>
                         <div class="col-md-4">
-                            <label for="department">Department</label><br />
+                            <label for="department">Department<span>*</span></label><br />
                             <select name="department" id="department" required>
                                 <option value="cse">Computer Science and Engineering</option>
                                 <option value="eee">Electronic and Electrical Engineering</option>
@@ -182,14 +188,14 @@ pageEncoding="ISO-8859-1"%>
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="gradyear">Year of Graduation</label><br />
+                            <label for="gradyear">Year of Graduation<span>*</span></label><br />
                             <input type="number" id="gradyear" name="gradyear" min=2021 max=2023 value="<%=gradyear%>"
                                 required>
                         </div>
                     </section>
                     <section id="markdetails" class="row">
                         <div class="col-md-4">
-                            <label for="cgpa">CGPA</label><br />
+                            <label for="cgpa">CGPA<span>*</span></label><br />
                             <input type="number" id="cgpa" name="cgpa" min=0.0 max=10.0 step=0.01 value="<%=cgpa%>"
                                 required>
                         </div>
@@ -199,12 +205,20 @@ pageEncoding="ISO-8859-1"%>
                     <legend>Company Questions</legend>
                     <section id="company-role" class="row justify-content-between">
                         <div class="col-md-4">
-                            <label for="companybox">Company</label><br />
+                            <label for="companybox">Company<span>*</span></label><br />
                             <input type="text" name="companybox" id="companybox" value="Selected company" readonly
                                 required>
                         </div>
                         <div class="col-md-4">
-                            <label for="role">Role</label><br />
+                            <label for="type">Type<span>*</span></label><br />
+                            <select name="type" id="type" required>
+                                <option value="Intern">Intern</option>
+                                <option value="FTE">FTE</option>
+                                <option value="Combined">Combined</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="role">Role<span>*</span></label><br />
                             <select name="role" id="role" required>
                                 <option value="SWE">Software Engineer</option>
                                 <option value="RD">Research and Dev</option>
@@ -213,15 +227,16 @@ pageEncoding="ISO-8859-1"%>
                         </div>
                     </section>
                     <section id="company-question" class="row">
+                    
                         <div class="col-md-4">
-                            <label for="question">Answer the following</label><br />
+                            <label for="question">Why do you want to join this company?</label><br />
                             <textarea id="question" name="question" minlength=50></textarea>
                         </div>
                     </section>
                     <section id="resume-upload" class="row">
                         <div class="col-md-4">
-                            <label for="r-upload">Upload your resume</label><br />
-                            <input type="file" id="r-upload" name="r-upload" />
+                            <label for="r-upload">Upload your resume<span>*</span></label><br />
+                            <input type="file" id="r-upload" name="r-upload" required/>
                         </div>
                     </section>
 
@@ -248,14 +263,7 @@ pageEncoding="ISO-8859-1"%>
             </form>
         </div>
     </div>
-    <section class="optional row" id="company_link">
-        <div class="col text-center text-md-center">
-            <p>The company you have selected requires you to complete registration by going on its site at the
-                link mentioned below.</p>
-
-            <a href="http://amazon.com">Complete registration</a>
-        </div>
-    </section>
+    
 
     <script>
         function populate(selectedVal) {
