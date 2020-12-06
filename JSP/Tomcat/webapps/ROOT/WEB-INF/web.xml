@@ -37,4 +37,14 @@
 <url-pattern>/login_serve</url-pattern>  
 </servlet-mapping>
 
+<servlet>  
+<servlet-name>company_register_serve</servlet-name>  
+<servlet-class>company_register_serve</servlet-class>  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>company_register_serve</servlet-name>  
+<url-pattern>/company_register_serve</url-pattern>  
+</servlet-mapping>
+
 </web-app>
