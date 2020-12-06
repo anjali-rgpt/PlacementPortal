@@ -1,3 +1,6 @@
+<%@ page import="java.util.*"%>
+<%System.out.println("In the main page");%>
+<%System.out.println("Email:"+session.getValue("email"));%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

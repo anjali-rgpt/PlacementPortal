@@ -27,4 +27,14 @@
      Welcome to Tomcat
   </description>
 
+<servlet>  
+<servlet-name>login_serve</servlet-name>  
+<servlet-class>login_serve</servlet-class>  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>login_serve</servlet-name>  
+<url-pattern>/login_serve</url-pattern>  
+</servlet-mapping>
+
 </web-app>
