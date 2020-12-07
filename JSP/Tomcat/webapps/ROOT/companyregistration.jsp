@@ -31,7 +31,7 @@ pageEncoding="ISO-8859-1"%>
                 <h1>Student Portal</h1>
             </div>
             <div class="col-md-4 col-sm-12 my-auto">
-                <button type="button" class="btn" id="signinout" value="logout" name="signinout">Logout</button>
+                <button type="button" class="btn" id="signinout" value="logout" name="signinout"><a href="http://localhost:8080/">Logout</a></button>
             </div>
         </header>
         <nav class="nav nav-pills nav-justified">
@@ -219,9 +219,9 @@ pageEncoding="ISO-8859-1"%>
                         <div class="col-md-4">
                             <label for="role">Role<span>*</span></label><br />
                             <select name="role" id="role" required>
-                              <!--- <option value="SWE">Software Engineer</option>
+                              <option value="SWE">Software Engineer</option>
                                 <option value="RD">Research and Dev</option>
-                                <option value="Sec">System Security Engineer</option>--> 
+                                <option value="Sec">System Security Engineer</option>
 
                             </select>
                         </div>
@@ -246,6 +246,7 @@ pageEncoding="ISO-8859-1"%>
                 con.close();}
         catch(Exception e){
             System.out.println("Exception while retrieving values:\n"+e);
+            response.sendRedirect("http://localhost:8080/mainpage.jsp");
         }
         
         %>

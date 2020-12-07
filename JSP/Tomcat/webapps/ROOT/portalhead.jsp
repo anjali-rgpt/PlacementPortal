@@ -21,7 +21,7 @@
             <h1>Student Portal</h1>
         </div>
         <div class="col-md-4 col-sm-12 my-auto">
-            <button type="button" class="btn" id="signinout" value="logout" name="signinout">Logout</button>
+            <button type="button" class="btn" id="signinout" value="logout" name="signinout"><a href="http://localhost:8080/">Logout</a></button>
         </div>
     </header>
     <nav class="nav nav-pills nav-justified">
