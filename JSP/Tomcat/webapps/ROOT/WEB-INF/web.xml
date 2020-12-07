@@ -47,4 +47,17 @@
 <url-pattern>/company_register_serve</url-pattern>  
 </servlet-mapping>
 
+<servlet>  
+<servlet-name>companydetails_serve</servlet-name>  
+<servlet-class>companydetails_serve</servlet-class>  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>companydetails_serve</servlet-name>  
+<url-pattern>/companydetails_serve</url-pattern>  
+</servlet-mapping>
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
 </web-app>

@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<%@ page import = "java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*" %>"
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="CSS\companies_list_constyle.css">
@@ -5,78 +10,65 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Philosopher:wght@700&display=swap">
     </head>
     <body>
-        <div class="row" id="companycolumn">
-            <div class="col-md-6">
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company1</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag1</a></button>
-                    </div>
-                </div>
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company2</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag2</a></button>
-                    </div>
-                </div>
+        <%
+        Connection con;
+        PreparedStatement ps1,ps2;
+        System.out.println("Entered Company Registration JSP");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found. " + e);
+        }
+        System.out.println("Class found");
+        try{
+        con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/6dO9xvYDBl", "6dO9xvYDBl", "uBQpS0PirH");
+        String query = "USE 6dO9xvYDBl";
+        Statement stmt = con.createStatement();
+        stmt.executeQuery(query);
+        
+        
+        String email = (String)session.getAttribute("email");
     
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company3</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag3</a></button>
-                    </div>
-                </div>
+        ps2=con.prepareStatement("select RollNumber,CGPA from Student where EmailID = ?");
+        ps2.setString(1,email);
+        System.out.println("Email set to:"+email);
     
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company4</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag4</a></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company5</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag5</a></button>
-                    </div>
-                </div>
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company6</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag6</a></button>
-                    </div>
-                </div>
+        ResultSet rs2 = ps2.executeQuery();
+        System.out.println("Executed");
+        String rollnum="C";
+        float cgpa=0;
+        while(rs2.next()){
+            rollnum = rs2.getString(1);
+            cgpa=rs2.getFloat(2);
+        }
+        if(rollnum!=null)
+        session.putValue("rollnum",rollnum);
     
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company7</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag7</a></button>
-                    </div>
-                </div>
+        ps1 = con.prepareStatement("select distinct CompanyName from Companies");
+        System.out.println("Statement");
+        ResultSet rs = ps1.executeQuery();
+        System.out.println("Got the companies");
     
-                <div class="row justify-content-around">
-                    <div class="col-md-3 name_col">
-                        <button class="com_name"><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Company8</a></button>
-                    </div>
-                    <div class="col-md-3 tag">
-                        <button class="com_tag" disabled><a href="http://localhost:8080/companydetails.jsp" target="_top">Page1_Tag8</a></button>
-                    </div>
-                </div>
+            %>
+        <div class="row justify-content-center" id="companycolumn">
+            <div class = "col-auto" id="companies">
+                
+               <% while(rs.next()){
+                   System.out.println(rs.getString(1));%>
+                <form method="GET" action="http://localhost:8080/companydetails_serve" name="form_"+"<%=rs.getString(1)%>">
+                <table border="1"></table>
+                <tr>
+                    <td id="<%=rs.getString(1)%>" name="x"><%=rs.getString(1)%></td>
+                    <input type="hidden" name="compnametable" value="<%=rs.getString(1)%>"/>
+                    <td><input type="submit" value="Details"/></td>
+                </tr>
+               </table>
+                </form>
+                <%}
+            con.close();}
+                catch(Exception e){
+                    System.out.println("Some db retrieval error"+e);
+                } %>
             </div>
         </div>
     </body>

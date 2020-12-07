@@ -39,7 +39,7 @@
                 name="calendar">Calendar</a>
         </nav>
     </div>
-    <div class="details_pagebody">
+    <div class="details_pagebody col text-center text-md-center">
         <h1>Successful Submission</h1>
     </div>
 

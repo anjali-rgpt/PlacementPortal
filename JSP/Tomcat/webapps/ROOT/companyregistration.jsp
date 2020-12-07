@@ -99,7 +99,6 @@ pageEncoding="ISO-8859-1"%>
     ResultSet rs = ps1.executeQuery();
     System.out.println("Got the companies");
 
-
         %>
 
 
@@ -220,9 +219,10 @@ pageEncoding="ISO-8859-1"%>
                         <div class="col-md-4">
                             <label for="role">Role<span>*</span></label><br />
                             <select name="role" id="role" required>
-                                <option value="SWE">Software Engineer</option>
+                              <!--- <option value="SWE">Software Engineer</option>
                                 <option value="RD">Research and Dev</option>
-                                <option value="Sec">System Security Engineer</option>
+                                <option value="Sec">System Security Engineer</option>--> 
+
                             </select>
                         </div>
                     </section>
