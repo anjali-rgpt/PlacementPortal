@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<%@ page import = "java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*" %>"
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,29 +21,21 @@
 </head>
 
 <body>
-    <div id="navigationbar" class="sticky-top">
-        <header class="row ">
-            <div class="col-md-4 col-sm-12 my-auto">
-                <img src="Images\amritalogo.png" />
-            </div>
-            <div class="col-md-4 col-sm-12 my-auto">
-                <h1>Student Portal</h1>
-            </div>
-            <div class="col-md-4 col-sm-12 my-auto">
-                <button type="button" class="btn" id="signinout" value="logout" name="signinout">Logout</button>
-            </div>
-        </header>
-        <nav class="nav nav-pills nav-justified">
-            <a href="http://localhost:8080/mainpage.jsp" class="nav-item nav-link" target="mainframe" id="home" name="home">Home</a>
-            <a href="http://localhost:8080/companies_list.jsp" class="nav-item nav-link" id="companies" name="companies">Companies</a>
-            <a href="http://localhost:8080/companyregistration.jsp" class="nav-item nav-link " id="register" name="register">Registration</a>
-            <a href="http://localhost:8080/calendar.jsp" class="nav-item nav-link" id="calendar" name="calendar">Calendar</a>
-        </nav>
-    </div>
+    <%
+    String companyName = (String)request.getAttribute("companyName");
+    String about = (String)request.getAttribute("about");
+    String[] criteria=((String)request.getAttribute("criteria")).split("&");
+    String cgpa = (String)request.getAttribute("cgpa");
+    ArrayList rolenames=(ArrayList)request.getAttribute("roles");
+    ArrayList descps=(ArrayList)request.getAttribute("roledescrip");
+    ArrayList ctcs=(ArrayList)request.getAttribute("ctcs");
+%>
+
+
     <div class="details_pagebody">
         <section id="header" class="row align-items-center">
             <div id="title" class="col-md-8 text-center text-md-left">
-                <h1>Company Title</h1>
+                <h1><%=companyName%></h1>
             </div>
             <div id="logo" class="col-md-4 text-center text-md-center">
                 <img src="Images\warrior.png" width=75px height=75px />
@@ -47,20 +45,15 @@
             <section id="details" class="col-md-8">
                 <section id="about" class="row">
                     <h1>About Company</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in suscipit lorem, a bibendum
-                        nulla. Donec a nunc ac erat fringilla rutrum finibus vel nisl. Curabitur et sapien dictum,
-                        vulputate dui ac, sagittis eros. Nullam scelerisque lacus nisl, vitae eleifend tellus sagittis
-                        auctor. Pellentesque rutrum tortor vitae diam molestie semper non vitae ante. Maecenas sed nisi
-                        vel elit faucibus iaculis. Morbi iaculis finibus ligula, ut pharetra arcu. Donec vel ligula ut
-                        eros sagittis feugiat.</p>
+                    <p><%=about%></p>
 
                 </section>
                 <section id="criteria" class="row">
                     <h1>Criteria</h1>
                     <ul>
-                        <li>GPA</li>
-                        <li>Experience with C, Java or Python</li>
-                        <li>Knowledge of OS and DSA</li>
+                        <%for (String element:criteria){%>
+                            <li><%=element%></li>
+                        <%}%>
                     </ul>
                 </section>
 
@@ -68,11 +61,13 @@
             <section id="roles" class="col-md-4 text-center text-md-center">
                 <h1>Roles</h1>
                 <dl>
-                    <dt>Software Engineer</dt>
-                    <dd>Description of role</dd>
+                <%for (int i=0;i < rolenames.size();i++){%>
 
-                    <dt>R&D</dt>
-                    <dd>Description of role</dd>
+
+                    <dt><%=(String)rolenames.get(i)%></dt>
+                    <dd><%=(String)descps.get(i)%></dd>
+                    <dd>CTC: <%=(Integer)ctcs.get(i)%></dd>
+<%}%>
                 </dl>
             </section>
     

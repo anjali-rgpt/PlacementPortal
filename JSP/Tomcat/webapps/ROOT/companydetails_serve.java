@@ -101,7 +101,7 @@ public class companydetails_serve extends HttpServlet{
             request.setAttribute("roledescrip",roledescps);
 
             con.close();
-            RequestDispatcher dispatcher = request.getRequestDispatcher("http://localhost:8080/companydetails.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("companydetails.jsp");
             dispatcher.forward(request, response);
 
         }
