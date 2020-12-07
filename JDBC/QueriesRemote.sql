@@ -12,6 +12,7 @@ delete from Registrations;
 delete from Student;
 
 drop table Registrations;
+delete from Registrations where RollNumber = "CB.EN.U4CSE17307";
 drop table Student;
 drop table Roles;
 drop table Companies;
