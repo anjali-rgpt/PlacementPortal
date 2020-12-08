@@ -59,15 +59,11 @@ pageEncoding="ISO-8859-1"%>
     con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/6dO9xvYDBl", "6dO9xvYDBl", "uBQpS0PirH");
     String query = "USE 6dO9xvYDBl";
     Statement stmt = con.createStatement();
-    stmt.executeQuery(query);
-    
-    
+    stmt.executeQuery(query);  
     String email = (String)session.getAttribute("email");
-
     ps2=con.prepareStatement("select * from Student where EmailID = ?");
     ps2.setString(1,email);
     System.out.println("Email set to:"+email);
-
     ResultSet rs2 = ps2.executeQuery();
     System.out.println("Query done to select all details");
     String firstname = "X";
@@ -78,7 +74,6 @@ pageEncoding="ISO-8859-1"%>
     String address="Address";
     int gradyear=2020;
     float cgpa=10;
-
     while (rs2.next()){
         firstname = rs2.getString(1);
         mname = rs2.getString(2);
@@ -90,9 +85,7 @@ pageEncoding="ISO-8859-1"%>
         cgpa=rs2.getFloat(11);
         System.out.println(firstname+lname+rollnumber+phonenumber+address+gradyear+cgpa);
     }
-
     session.putValue("rollnum",rollnumber);
-
     ps1 = con.prepareStatement("select distinct Companies.CompanyName from Companies where CompanyName not in (select CompanyName from Registrations where RollNumber = ?)");
     System.out.println("Statement");
     ps1.setString(1,rollnumber);

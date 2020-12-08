@@ -30,8 +30,6 @@ pageEncoding="ISO-8859-1"%>
     ArrayList descps=(ArrayList)request.getAttribute("roledescrip");
     ArrayList ctcs=(ArrayList)request.getAttribute("ctcs");
 %>
-
-
     <div class="details_pagebody">
         <section id="header" class="row align-items-center">
             <div id="title" class="col-md-8 text-center text-md-left">
@@ -62,8 +60,6 @@ pageEncoding="ISO-8859-1"%>
                 <h1>Roles</h1>
                 <dl>
                 <%for (int i=0;i < rolenames.size();i++){%>
-
-
                     <dt><%=(String)rolenames.get(i)%></dt>
                     <dd><%=(String)descps.get(i)%></dd>
                     <dd>CTC: <%=(Integer)ctcs.get(i)%></dd>
